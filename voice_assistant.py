@@ -24,6 +24,8 @@ from ecapture import ecapture as ec
 from bs4 import BeautifulSoup
 import win32com.client as wincl
 from urllib.request import urlopen
+from config import email, pword
+
 
 # set engine to Pyttsx3 which is used for test to speech and sapi5 which is microsoft speech application
 #     platform interface being used for text to speech function
@@ -92,8 +94,8 @@ def sendEmail(to, content):
     server.starttls()
 
     # enable low security in gmail
-    server.login('johnphillipmcdowell@gmail.com', 'googly!27')
-    server.sendmail('johnphillipmcdoewll@gmail.com', to, content)
+    server.login(email, pword)
+    server.sendmail(email, to, content)
     server.close()
 
 # main function starts here. will now call all above functions in main function
